@@ -1,0 +1,66 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - digital-citizenship
+description:
+  it:
+    features:
+      - ' Sportello virtuale, prenotazione appuntamento, gestione code'
+    genericName: 'VIDE, Your Virtual Desk'
+    longDescription: >
+      Con VIDE cittadini e professionisti possono prenotare appuntamenti agli
+      sportelli di un Ente oppure presentarsi direttamente e senza preavviso al
+      link di uno sportello virtuale, mettendosi in coda per effettuare una call
+      con l'operatore dell'Ente. Nel caso di un appuntamento prenotato ad uno
+      sportello virtuale, l'utente riceve il promemoria con il link a cui
+      presentarsi nel giorno e orario scelto per effettuare la call con
+      l'operatore. Durante la call è possibile fruire di tutte le tipiche
+      funzionalità dei sistemi di conference, quali start e stop di microfono e
+      webcam, condivisione del desktop, scambio di file e chat.
+
+
+      Un back office dedicato all'Ente permette di fruire di tutte le
+      funzionalità di configurazione dei suoi sportelli, con descrizioni, slot
+      temporali, chiusure, etc. Sempre tramite VIDE l'operatore di sportello
+      gestisce le call con gli utenti avviandole e chiudendole a seconda delle
+      necessità e delle regole definite dall'Ente. 
+
+
+      Il prodotto è progettato ed erogato in logica as-a-service e la soluzione
+      tecnologica privilegia la fruizione da dispositivi mobile.
+    shortDescription: >-
+      VIDE, Your Virtual Desk, è un sistema di sportello intelligente, che
+      permette la gestione e la fruizione degli sportelli tradizionali e
+      virtuali di u
+developmentStatus: development
+it:
+  conforme:
+    gdpr: false
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: EUPL-1.2
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: true
+maintenance:
+  contacts:
+    - name: riccardo.franco@csi.it
+  type: internal
+name: VIDE
+platforms:
+  - web
+releaseDate: '2020-07-01'
+softwareType: standalone/web
+url: 'https://github.com/csipiemonte/vide'
