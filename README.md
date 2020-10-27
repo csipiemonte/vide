@@ -14,7 +14,7 @@ Il prodotto è progettato ed erogato in logica as-a-service e la soluzione tecno
 L'applicativo **VIDE, Your Virtual Desk** è costituito dai seguenti componenti:
 - [APPSCHEDWEB](#) (Gestore prenotazione appuntamenti e backoffice operatore di sportello)
 - [PWA](https://github.com/csipiemonte/vide-pwa) (Modulo per la gestione della videoconferenza)
-- [API](#) (Servizi REST) le cui specifiche sono reperibili [qui](https://github.com/csipiemonte/vide/vide-1.0.0-swagger.yaml)
+- [API](#) (Servizi REST) le cui specifiche sono reperibili nel file [vide-1.0.0-swagger.yaml](vide-1.0.0-swagger.yaml)
 
 # Prerequisites
 I prerequisiti per l'installazione dell'applicativo sono i seguenti:
