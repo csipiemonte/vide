@@ -12,9 +12,9 @@ Il prodotto è progettato ed erogato in logica as-a-service e la soluzione tecno
 
 # Getting Started
 L'applicativo **VIDE, Your Virtual Desk** è costituito dai seguenti componenti:
-- [PWA](https://github.com/csipiemonte/vide-pwa) (Front-End Web)
-- [PX](https://github.com/csipiemonte/vide-px) (Proxy PHP)
-- [API](#) (Servizi REST)
+- [APPSCHEDWEB](#) (Gestore prenotazione appuntamenti e backoffice operatore di sportello)
+- [PWA](https://github.com/csipiemonte/vide-pwa) (Modulo per la gestione della videoconferenza)
+- [API](#) (Servizi REST) le cui specifiche sono reperibili [qui](https://github.com/csipiemonte/vide/vide-1.0.0-swagger.yaml)
 
 # Prerequisites
 I prerequisiti per l'installazione dell'applicativo sono i seguenti:
@@ -37,4 +37,8 @@ Gli autori sono indicati nei file README.md dei singoli componenti.
 (C) Copyright 2020 CSI Piemonte
 
 # License
-Nei file LICENSE.txt dei singoli componenti è riportata la licenza con la quale è distribuito il software.
+Questo software è distribuito con licenza [EUPL-1.2-or-later](https://joinup.ec.europa.eu/collection/eupl/eupl-text-11-12)
+
+Consulta il file [LICENSE.txt](LICENSE.txt) per i dettagli sulla licenza (versione inglese [LICENSE_EN.txt](LICENSE_EN.txt)).
+
+Le licenze di distribuzione del software dei singoli componenti sono indicate nei corrispondenti file LICENSE.txt posizionati nelle directory dei sorgenti.

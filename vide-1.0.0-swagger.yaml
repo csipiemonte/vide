@@ -1,0 +1,1321 @@
+swagger: '2.0'
+info:
+  title: vide API
+  description: >
+    # API for the management of virtual desk.
+
+    This API allows the management of appointments: generating of a virtual desk
+    ID, creating of an appointment,updating of an appointment, searching for a
+    list of appointments, sorted by the most recent or oldest date, with some
+    filters such as appointment start date, appointment end date, appointment
+    status, operator identifier and front office ID.<br>
+
+
+    ## Example of use:
+
+    ---
+
+    **resource:** /virtual-desk
+
+    ```
+
+    http GET /vide/api/v1/virtual-desk
+
+    response:
+
+    {  
+      "virtual_desk_id":  "ad407928-7440-4db3-b013-ff952e399fd6",
+      "conference_id":  "76e23ef2-bf95-4656-b4d3-ecc2a3914d45",  
+      "conference_url":  "www.conference.torino.it"  
+    }
+
+    ```
+
+
+    **resource:** /appointments
+
+    ```
+
+    http GET /vide/api/v1/appointments?filter={"begin_date":{"gte":"2020-05-28
+    00:00:00"}}&limit=5&offset=0&sort=%2Bbegin_date
+
+    response:
+
+    [
+      {
+        "appointment_id": "123456789",
+        "begin_date": "2020-05-21T10:00:00Z",
+        "end_date": "2020-05-21T11:00:00Z",
+        "status": "available",
+        "front_office_id": "string",
+        "notes" : "notes",
+        "virtual_desk": {
+          "virtual_desk_id": "ad407928-7440-4db3-b013-ff952e399fd6",
+          "conference_id": "76e23ef2-bf95-4656-b4d3-ecc2a3914d45",
+          "conference_url": "www.conference.torino.it"
+        },
+        "user": {
+          "name": "Mario",
+          "surname": "Rossi",
+          "phone": 393333333333,
+          "email": "mario.rossi@vide.it"
+        },
+        "operator": {
+          "operator_id": "123456789",
+          "name": "Giuseppe",
+          "surname": "Bianchi"
+        }
+      }
+    ]
+
+    ```
+
+
+    **resource:** /appointments/{appointment_id}
+
+    ```
+
+    http GET /vide/api/v1/appointments/123456789
+
+    response:
+
+    {
+      "appointment_id": "123456789",
+      "begin_date": "2020-05-21T10:00:00Z",
+      "end_date": "2020-05-21T11:00:00Z",
+      "status": "available",
+      "front_office_id": "123456789",
+      "notes" : "notes",
+      "virtual_desk": {
+        "virtual_desk_id": "ad407928-7440-4db3-b013-ff952e399fd6",
+        "conference_id": "76e23ef2-bf95-4656-b4d3-ecc2a3914d45",
+        "conference_url": "www.conference.torino.it"
+      },
+      "user": {
+        "name": "Mario",
+        "surname": "Rossi",
+        "phone": 393333333333,
+        "email": "mario.rossi@vide.it"
+      },
+      "operator": {
+        "operator_id": "123456789",
+        "name": "Giuseppe",
+        "surname": "Bianchi"
+      }
+    }
+
+    ```
+
+
+    **resource:** /appointment
+
+    ```
+
+    http POST /vide/api/v1/appointments
+
+    body: 
+
+    {
+      "appointment_id": "",
+      "begin_date": "2020-05-21T10:00:00Z",
+      "end_date": "2020-05-21T11:00:00Z",
+      "status": "pending",
+      "notes" : "notes",
+      "front_office_id": "123456789",
+      "virtual_desk": {
+        "virtual_desk_id": "ad407928-7440-4db3-b013-ff952e399fd6",
+        "conference_id": "76e23ef2-bf95-4656-b4d3-ecc2a3914d45",
+        "conference_url": "www.conference.torino.it"
+      },
+      "user": {
+        "name": "Mario",
+        "surname": "Rossi",
+        "phone": 393333333333,
+        "email": "mario.rossi@vide.it"
+      },
+      "operator": {
+        "operator_id": "123456789",
+        "name": "Giuseppe",
+        "surname": "Bianchi"
+      }
+    }
+
+    response:
+
+    {
+      "appointment_id": "123456789",
+      "begin_date": "2020-05-21T10:00:00Z",
+      "end_date": "2020-05-21T11:00:00Z",
+      "status": "pending",
+      "front_office_id": "123456789",
+      "virtual_desk": {
+        "virtual_desk_id": "ad407928-7440-4db3-b013-ff952e399fd6",
+        "conference_id": "76e23ef2-bf95-4656-b4d3-ecc2a3914d45",
+        "conference_url": "www.conference.torino.it"
+      },
+      "user": {
+        "name": "Mario",
+        "surname": "Rossi",
+        "phone": 393333333333,
+        "email": "mario.rossi@vide.it"
+      },
+      "operator": {
+        "operator_id": "123456789",
+        "name": "Giuseppe",
+        "surname": "Bianchi"
+      }
+    }
+
+    ```
+
+
+    **resource:** /appointments/{appointment_id}
+
+    ```
+
+    http PUT /vide/api/v1/appointments/123456789
+
+    body: 
+
+    {
+      "appointment_id": "123456789",
+      "begin_date": "2020-05-21T10:00:00Z",
+      "end_date": "2020-05-21T11:00:00Z",
+      "status": "pending",
+      "front_office_id": "123456789",
+      "virtual_desk": {
+        "virtual_desk_id": "ad407928-7440-4db3-b013-ff952e399fd6",
+        "conference_id": "76e23ef2-bf95-4656-b4d3-ecc2a3914d45",
+        "conference_url": "www.conference.torino.it"
+      },
+      "user": {
+        "name": "Mario",
+        "surname": "Rossi",
+        "phone": 393333333333,
+        "email": "mario.rossi@vide.it"
+      },
+      "operator": {
+        "operator_id": "123456789",
+        "name": "Giuseppe",
+        "surname": "Bianchi"
+      }
+    }
+
+    response:
+
+    {
+      "appointment_id": "123456789",
+      "begin_date": "2020-05-21T10:00:00Z",
+      "end_date": "2020-05-21T11:00:00Z",
+      "status": "pending",
+      "front_office_id": "123456789",
+      "virtual_desk": {
+        "virtual_desk_id": "ad407928-7440-4db3-b013-ff952e399fd6",
+        "conference_id": "76e23ef2-bf95-4656-b4d3-ecc2a3914d45",
+        "conference_url": "www.conference.torino.it"
+      },
+      "user": {
+        "name": "Mario",
+        "surname": "Rossi",
+        "phone": 393333333333,
+        "email": "mario.rossi@vide.it"
+      },
+      "operator": {
+        "operator_id": "123456789",
+        "name": "Giuseppe",
+        "surname": "Bianchi"
+      }
+    }
+
+    ```
+  version: 1.0.0
+host: www.host.it
+basePath: /vide/api/v1
+schemes:
+  - http
+securityDefinitions:
+  basicAuth:
+    type: basic
+security:
+  - basicAuth: []
+paths:
+  /virtual-desk:
+    get:
+      summary: get VirtualDeskId
+      description: |
+        Generate the virtual desk id in UUID format
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            $ref: '#/definitions/virtualDesk'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+  /appointments:
+    get:
+      summary: listAppointments
+      description: >-
+        Return the appointments list filtered for begin data,end date,status,
+        operator id, office id
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: filter
+          in: query
+          type: string
+          description: >
+            The filter. It is possible to use follow criteria: 
+            
+            * all appointments that have begin_date greater than or equals: `{
+              "begin_date": {"gte": "beginDate"} }`
+
+            * all appointments that have end_date less that or equals: `{
+              "end_date": {"lte": "endDate"} }`
+
+            * all appointments with the spificied status: `{ "status": {
+              "eq": "status" } }`
+
+            * all appointment with the spificied operator_id: `{ "operator_id":
+            {"eq": "operatorId" } }`
+
+            * all appointments with the spificied front_office_id: `{
+            "front_office_id": {"eq": "frontOfficeId" }}`
+          default: '{}'
+        - in: query
+          name: sort
+          required: false
+          description: |
+            sort criteria. It is possible to use follow criteria:
+            * first the oldest appointments: `+begin_date`
+            * first the newest appointments: `-begin_date`
+          type: string
+          default: '-begin_date'
+        - in: query
+          name: offset
+          required: false
+          type: integer
+          default: 0
+          description: Number of items to start creating the appointments list from
+        - in: query
+          name: limit
+          required: false
+          type: integer
+          default: 10
+          description: Maximum number of appointmens returned
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+            total_elements:
+              description: number of elements matching the filter
+              type: integer
+            current_page:
+              description: number of the current page
+              type: integer
+            page_size:
+              description: number of the elements in a page
+              type: integer
+            total_pages:
+              description: number of total pages
+              type: integer
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/appointment'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+    post:
+      summary: setAppointment
+      description: Create the appointment
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: body
+          in: body
+          required: true
+          description: appointment that to be created
+          schema:
+            $ref: '#/definitions/appointment'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/appointment'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+  '/appointments/{appointment_id}':
+    get:
+      summary: getAppointment
+      description: 'Returns the appointment for the provided identifier '
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: X-Auth-Role
+          in: header
+          type: string
+          required: true
+          description: role by who call the service. Must be "user" OR "operator" 
+        - name: appointment_id
+          in: path
+          type: string
+          required: true
+          description: identifier of the appointment
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+            Authorization:
+              type: string
+              description: the JWT token. Format is - Bearer {token}
+          schema:
+            $ref: '#/definitions/appointment'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+    put:
+      summary: updateAppointment
+      description: 'Update the appointment(change the status,assign the operator,etc..)'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - in: path
+          name: appointment_id
+          type: string
+          required: true
+        - name: body
+          in: body
+          required: true
+          description: appointment that to be updated
+          schema:
+            $ref: '#/definitions/appointment'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/appointment'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+  /operator:
+    post:
+      summary: getOperator
+      description: |
+        Login an user on the system
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - name: body
+          in: body
+          required: true
+          description: the login information
+          schema:
+            $ref: '#/definitions/login'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            $ref: '#/definitions/account'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+  /operator/decodeToken:
+    get:
+      summary: decodeTokenOperator
+      description: |
+        Decode the jwt token passed as input and return the information about the operator
+        If the provided TenantId not exist return 404
+        If jwt token signature is invalid or is expired return 400
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: X-Token-JWT
+          in: header
+          type: string
+          required: true
+          description: the JWT token to decode and from which get user infos 
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            $ref: '#/definitions/operatorInfo'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+  '/attachment/{appointment_id}':
+    post:
+      summary: uploadDocument
+      description: |
+        Upload a document as attachements
+        If the provided appointment not exist or the input fields is bad return 400 
+      consumes:
+        - multipart/form-data
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - in: path
+          name: appointment_id
+          type: string
+          required: true
+        - in: formData
+          name: upFile
+          type: file
+          description: file to upload
+          required: true
+        - in: formData
+          name: fileName
+          type: string
+          description: The name of file
+          required: true
+        - in: formData
+          name: uploadByUser
+          type: boolean
+          description: boolean flag. Must be set to true if file is upload by user, false otherwise
+          required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            $ref: '#/definitions/attachment'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+    get:
+      summary: listAttachment
+      description: |
+        Returns all the attachment attributes for the provided appointment.
+        If the provided appointment not exist return 400 
+        If there are not attachment for the provided appointment return 404
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: appointment_id
+          in: path
+          type: string
+          required: true
+          description: identifier of the appointment
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/attachment'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+  '/attachment/{appointment_id}/{attachment_id}':
+    get:
+      summary: getAttachment
+      description: |
+        Returns the attachment for the provided appointment.
+        If the provided appointment not exist return 400 
+        If there are not attachment for the provided appointment return 404
+      produces:
+        - application/json
+        - application/pdf
+        - image/png
+        - image/gif
+        - image/jpeg
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: appointment_id
+          in: path
+          type: string
+          required: true
+          description: identifier of the appointment
+        - name: attachment_id
+          in: path
+          type: string
+          required: true
+          description: identifier of the attachment
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: string
+            format: bynary
+            description: the file with the attachment_id provided
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+    delete:
+      summary: deleteAttachment
+      description: |
+        Delete the attachment for the provided appointment.
+        If the provided appointment not exist return 400 
+        If there are not attachment for the provided appointment return 404
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: appointment_id
+          in: path
+          type: string
+          required: true
+          description: identifier of the appointment
+        - name: attachment_id
+          in: path
+          type: string
+          required: true
+          description: identifier of the attachment
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+  '/tenant/{hostname}':
+    get:
+      summary: getTenantId
+      description: |
+        Returns the tenant ID
+        If the provided hostname not exist return 400 
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - name: hostname
+          in: path
+          type: string
+          required: true
+          description: the hostname of the tenant
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            $ref: '#/definitions/tenant'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+  '/layout':
+    get:
+      summary: getLayout
+      description: 'Get layout for the tenant'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/layout'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+    post:
+      summary: setLayout
+      description: 'Set layout for the tenant'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: body
+          in: body
+          required: true
+          description: layout to save
+          schema:
+            $ref: '#/definitions/layout'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/layout'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+    put:
+      summary: updateLayout
+      description: 'Update layout for the tenant'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: body
+          in: body
+          required: true
+          description: layout to save
+          schema:
+            $ref: '#/definitions/layout'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: object
+            items:
+              $ref: '#/definitions/layout'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '404':
+          $ref: '#/responses/NotFound'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+  '/carousel':
+    get:
+      summary: getCarousel
+      description: 'Get carousel images for the tenant'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/carouselItem'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+    post:
+      summary: setCarousel
+      description: 'Set carousel images for the tenant'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: body
+          in: body
+          required: true
+          description: carousel images to save
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/carouselItem'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/carouselItem'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+    put:
+      summary: updateCarousel
+      description: 'Update carousel images for the tenant'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: body
+          in: body
+          required: true
+          description: carousel images to save
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/carouselItem'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/carouselItem'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+    delete:
+      summary: deleteCarousel
+      description: 'Delete all carousel images for the tenant'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+  '/carousel/{carouselId}':
+    delete:
+      summary: delete single carousel
+      description: 'Delete specific carousel images for the tenant'
+      produces:
+        - application/json
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+        - $ref: '#/parameters/header_x_tenant_id'
+        - name: carouselId
+          in: path
+          type: integer
+          required: true
+          description: the carouselId of the tenant to delete
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error
+          
+  '/isOffline':
+    get:
+      summary: isOffline
+      description: |
+        Returns true
+        If the services are offline 
+      produces:
+        - application/json  
+      parameters:
+        - $ref: '#/parameters/header_x_request_id'
+        - $ref: '#/parameters/header_x_forwarded_for'
+      responses:
+        '200':
+          description: OK
+          headers:
+            X-Request-ID:
+              type: string
+              description: the same UUID header parameter used in the request
+          schema:
+            $ref: '#/definitions/videConfig'
+        '400':
+          $ref: '#/responses/BadRequest'
+        '401':
+          $ref: '#/responses/UnauthorizedError'
+        '500':
+          $ref: '#/responses/InternalServerError'
+        default:
+          description: Unexpected error  
+parameters:
+  header_x_request_id:
+    in: header
+    name: X-Request-ID
+    type: string
+    description: >-
+      request identifier in `uuid v4` format. This identifier is useful for
+      tracking all requests
+    required: true
+  header_x_forwarded_for:
+    in: header
+    name: X-Forwarded-For
+    type: string
+    description: the list of IP addresses that made the request
+    required: true
+  header_x_tenant_id:
+    in: header
+    name: X-Tenant-Id
+    type: string
+    description: the tenant id
+    required: false
+responses:
+  BadRequest:
+    description: The client request is wrong
+  UnauthorizedError:
+    description: Authorization is missing or not valid
+  NotFound:
+    description: >-
+      No data found. The requested resource was not found with specificied
+      parameter
+  InternalServerError:
+    description: Internal server error.
+definitions:
+  appointment:
+    type: object
+    required:
+      - begin_date
+      - end_date
+      - status
+      - virtual_desk
+      - user
+    properties:
+      appointment_id:
+        type: string
+        description: appontment identifier in `uuid v4` format.
+      begin_date:
+        type: string
+        format: date-time
+        description: date of begin appointment
+      end_date:
+        type: string
+        format: date-time
+        description: date of appointment end
+      status:
+        type: string
+        description: 'appointment status. Available status are `available`,`pending`,`sold'''
+      front_office_id:
+        type: integer
+        description: front_office identifier
+        example: 123456789
+      front_office_name:
+        type: string
+        description: front_office description
+        example: tax office
+      notes:
+        type: string
+        description: appontment notes.
+      tenant_id:
+        type: string
+        description: the tenant identifier
+      virtual_desk:
+        $ref: '#/definitions/virtualDesk'
+      user:
+        $ref: '#/definitions/user'
+      operator:
+        $ref: '#/definitions/operator'
+  virtualDesk:
+    type: object
+    required:
+      - virtual_desk_id
+    properties:
+      virtual_desk_id:
+        type: string
+        description: virtual desk identifier in `uuid v4` format
+        example: ad407928-7440-4db3-b013-ff952e399fd6
+      conference_id:
+        type: string
+        description: conference identifier in `uuid v4` format
+        example: 76e23ef2-bf95-4656-b4d3-ecc2a3914d45
+      conference_url:
+        type: string
+        description: conference start url for user
+        example: http://www.conference.torino.it/#/user/join/
+      conference_url_operator:
+        type: string
+        description: conference start url for operator
+        example: http://www.conference.torino.it/#/operator/join/
+  user:
+    type: object
+    required:
+      - name
+      - surname
+    properties:
+      name:
+        type: string
+        description: the name of user that he have reserve the virtual desk
+        example: Mario
+      surname:
+        type: string
+        description: the surname of user that he have reserve the virtual desk
+        example: Rossi
+      phone:
+        type: string
+        description: the phone of user that he have reserve the virtual desk
+        example: 0393333333333
+      email:
+        type: string
+        description: the email of user that he have reserve the virtual desk
+        example: mario.rossi@vide.it
+      fiscal_code:
+        type: string
+        description: the fiscal code of user
+        example: userfiscalcode
+  operator:
+    type: object
+    properties:
+      operator_id:
+        type: integer
+        description: operator identifier
+        example: 123456789
+      name:
+        type: string
+        description: the name of operator
+        example: Giuseppe
+      surname:
+        type: string
+        description: the surname of operator
+        example: Bianchi
+      fiscal_code:
+        type: string
+        description: the fiscal code of operator
+        example: Bianchi
+  login:
+    type: object
+    properties:
+      username:
+        type: string
+        description: account's username
+        example: giuseppe
+      password:
+        type: string
+        description: account's password
+        example: secretcode
+  account:
+    type: object
+    properties:
+      operator:
+        $ref: '#/definitions/operator'
+      frontOffices:
+        type: array
+        items: 
+          $ref: '#/definitions/frontOffice'
+  frontOffice:
+    type: object
+    properties:
+      front_office_id:
+        type: integer
+        description: frontOffice identifier
+        example: 123456789
+      front_office_name:
+        type: string
+        description: the frontOffice name
+        example: Sportello ViDe 1
+      status:
+        type: integer
+        description: the frontOffice status
+        example: 1
+      status_desc:
+        type: string
+        description: the frontOffice status description
+        example: pubblicato
+      area_id:
+        type: integer
+        description: frontOffice area identifier
+        example: 123
+      area_desc:
+        type: string
+        description: the frontOffice area description
+        example: area demo
+  attachment:
+    type: object
+    properties:
+      attachment_id:
+        type: string
+        description: UUID for further refer to uploaded file 
+        example: 9daf35b6-d309-46c4-aa35-395318d2b983
+      filename:
+        type: string
+        description: the name of uploaded file
+        example: codice fiscale.pdf
+      size:
+        type: integer
+        description: size of the file in bytes
+        example: 20585
+      updloadDate:
+        type: string
+        format: date-time
+        description: date of the file was uploaded
+        example: 2020-05-21T10:00:00Z
+      uploadByUser:
+        type: boolean
+        description: boolean flag. The value is true if file was uploaded by user, false otherwise
+        example: true
+  tenant:
+    type: object
+    properties:
+      hostname:
+        type: string
+        description: tenant's hostname
+        example: asti.vide.csi.it
+      tenantId:
+        type: string
+        description: tenant's identifier
+        example: db0fb9aa-8bf8-43f5-925b-28dcc6a1715b
+  videConfig:
+    type: object
+    properties:
+      configKey:
+        type: string
+        description: config Key
+        example: JITSI_AUDIENCE_VALUE
+      configValue:
+        type: string
+        description: config Value
+        example: vide-web
+      description:
+        type: string
+        description: description
+        example: descrizione          
+  operatorInfo:
+    type: object
+    properties:
+      operator:
+        $ref: '#/definitions/operator'
+      role:
+        type: string
+        description: the operator role 
+        example: operator [Admin, Operator, Secretary, SuperUser]
+      issuer:
+        type: string
+        description: the issuer from jwt token
+        example: VIDE
+      audience:
+        type: string
+        description: the audience from jwt token
+        example: Appsched
+  layout:
+    type: object
+    properties:
+      logo:
+        type: string
+        description: logo image encoded as base64
+        example: logoasbase64stream
+      color:
+        type: string
+        description: default color as string in hex format 
+        example: ff00ff
+  carouselItem:
+    type: object
+    properties:
+      carouselId:
+        type: integer
+        description: carousel Item identifier. Is assigned by the system. Do not pass as input
+        example: 123
+      image:
+        type: string
+        description: image encoded as base64
+        example: logoasbase64stream
+      imageAlt:
+        type: string
+        description: alternative text to image
+        example: image description
+      link:
+        type: string
+        description: destination link on action  
+        example: http://www.vide.it
+      linkText:
+        type: string
+        description: text for the link
+        example: link description
