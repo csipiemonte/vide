@@ -37,7 +37,7 @@ Gli autori sono indicati nei file README.md dei singoli componenti.
 (C) Copyright 2020 CSI Piemonte
 
 # License
-Questo software è distribuito con licenza [GPL v3.0](https://www.gnu.org/licenses/gpl-3.0.html)
+Questo software è distribuito con licenza [GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0.html)
 
 Consulta il file [LICENSE.txt](LICENSE.txt) per i dettagli sulla licenza.
 
