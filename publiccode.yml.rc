@@ -9,35 +9,56 @@ description:
   it:
     apiDocumentation: 'https://github.com/csipiemonte/vide/blob/master/vide-1.0.0-swagger.yaml'
     features:
-      - ' Sportello virtuale, prenotazione appuntamento, gestione code'
+      - Sportello virtuale
+      - Prenotazioni appuntamento in presenza / da remoto
+      - Backoffice degli appuntamenti
+      - Videconferenza con condivisione file e schermo
     genericName: 'VIDE, Your Virtual Desk'
     longDescription: |
       Con **VIDE** cittadini e professionisti possono prenotare appuntamenti
+
       agli sportelli di un Ente oppure presentarsi direttamente e senza
+
       preavviso al link di uno sportello virtuale, mettendosi in coda per
+
       effettuare una call con l'operatore dell'Ente. Nel caso di un appuntamento
+
       prenotato ad uno sportello virtuale, l'utente riceve il promemoria con il
+
       link a cui presentarsi nel giorno e orario scelto per effettuare la call
+
       con l'operatore. Durante la call è possibile fruire di tutte le tipiche
+
       funzionalità dei sistemi di _conference_, quali accensione e spegnimento
+
       di microfono e videocamera, condivisione del desktop, scambio di file e
+
       chat.
 
 
+
       Un backoffice dedicato all'Ente permette di fruire di tutte le
+
       funzionalità di configurazione dei suoi sportelli, con descrizioni, slot
+
       temporali, chiusure, etc. Sempre tramite VIDE l'operatore di sportello
+
       gestisce le call con gli utenti avviandole e chiudendole a seconda delle
+
       necessità e delle regole definite dall'Ente.
 
 
+
       Il prodotto è progettato ed erogato in logica _as-a-service_ e la
+
       soluzione tecnologica privilegia la fruizione da dispositivi mobile.
     shortDescription: |-
       VIDE, Your Virtual Desk, è un sistema di sportello intelligente, che
+
       permette la gestione e la fruizione degli sportelli tradizionali e
+
       virtuali di u
-developmentStatus: development
+developmentStatus: stable
 it:
   conforme:
     gdpr: false
@@ -70,4 +91,9 @@ softwareType: standalone/web
 softwareVersion: 1.0.0
 url: 'https://github.com/csipiemonte/vide'
 usedBy:
-  - Comune di Torino
+  - Comune di Torino (vide-pwa)
+  - ' APL Asti'
+  - ' APL Chivasso'
+  - ' APL Omegna'
+  - ' APL Novara'
+  - IoLavoro
