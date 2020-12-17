@@ -15,51 +15,25 @@ description:
       - Videconferenza con condivisione file e schermo
     genericName: 'VIDE, Your Virtual Desk'
     longDescription: |
-      Con **VIDE** cittadini e professionisti possono prenotare appuntamenti
-
-
-      agli sportelli di un Ente oppure presentarsi direttamente e senza
-
-
-      preavviso al link di uno sportello virtuale, mettendosi in coda per
-
-
-      effettuare una call con l'operatore dell'Ente. Nel caso di un appuntamento
-
-
-      prenotato ad uno sportello virtuale, l'utente riceve il promemoria con il
-
-
-      link a cui presentarsi nel giorno e orario scelto per effettuare la call
-
-
-      con l'operatore. Durante la call è possibile fruire di tutte le tipiche
-
-
+      Con **VIDE**  cittadini e professionisti possono prenotare appuntamenti
+      agli sportelli  di un Ente e quindi fruire della videochiamata con
+      l'operatore  dell'Ente. Nel caso di un appuntamento prenotato ad uno
+      sportello virtuale, l'utente riceve il promemoria con il link a cui
+      presentarsi nel giorno e orario scelto per effettuare la call con
+      l'operatore. Durante la call è possibile fruire di tutte le tipiche
       funzionalità dei sistemi di _conference_, quali accensione e spegnimento
-
-
       di microfono e videocamera, condivisione del desktop, scambio di file e
-
-
       chat.
 
 
       Un backoffice dedicato all'Ente permette di fruire di tutte le
-
-
       funzionalità di configurazione dei suoi sportelli, con descrizioni, slot
-
-
       temporali, chiusure, etc. Sempre tramite VIDE l'operatore di sportello
-
-
       gestisce le call con gli utenti avviandole e chiudendole a seconda delle
-
-
       necessità e delle regole definite dall'Ente.
     shortDescription: |-
       VIDE, Your Virtual Desk, è un sistema di sportello intelligente, che
+
       permette la gestione sportelli tradizionali e virtuali di un ente.
 developmentStatus: development
 it:
