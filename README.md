@@ -5,8 +5,7 @@
 *VIDE, Your Virtual Desk,* è un sistema di sportello intelligente, che permette la gestione e la fruizione degli sportelli
 tradizionali e virtuali di un Ente.
 
-Con VIDE cittadini e professionisti possono prenotare appuntamenti agli sportelli di un Ente oppure presentarsi direttamente
-e senza preavviso al link di uno sportello virtuale, mettendosi in coda per effettuare una call con l'operatore dell'Ente.
+Con VIDE cittadini e professionisti possono prenotare appuntamenti agli sportelli di un Ente e quindi fruire della videochiamata con l'operatore dell'Ente.
 Nel caso di un appuntamento prenotato ad uno sportello virtuale, l'utente riceve il promemoria con il link a cui presentarsi
 nel giorno e orario scelto per effettuare la call con l'operatore. Durante la call è possibile fruire di tutte le tipiche
 funzionalità dei sistemi di conference, quali start e stop di microfono e webcam, condivisione del desktop, scambio di file e chat.
