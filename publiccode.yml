@@ -56,6 +56,7 @@ localisation:
   availableLanguages:
     - it
   localisationReady: true
+logo: VIDE.png
 maintenance:
   contacts:
     - email: riccardo.franco@csi.it
